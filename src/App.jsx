@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import AddUserPage from "./pages/AddUserPage";
+import UserBoard from './components/User/UserBoard';
 import MessangerPage from "./pages/MessangerPage";
+import AddUserPage from "./pages/AddUserPage";
 import "./App.sass";
 
 const App = () => {
@@ -9,6 +10,7 @@ const App = () => {
             <Routes>
                 <Route path="/" element={ <MessangerPage />} />
                 <Route path="AddUser" element={ <AddUserPage />}/>
+                <Route path="mobileUserMenu" element={ <UserBoard /> } />
             </Routes>
         </BrowserRouter>
     );

@@ -5,7 +5,7 @@ import InputMessage from "../components/Message/InputMessage";
 const MessangerPage = () => {
     return (
         <div className="flex">
-            <div className="w-1/4">
+            <div className="max-lg:hidden lg:w-1/4">
                 <UserBoard />
             </div>
             <div className="flex flex-col justify-between w-full">
