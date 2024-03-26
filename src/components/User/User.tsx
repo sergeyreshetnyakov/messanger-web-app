@@ -1,13 +1,17 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../../hook";
 import {
     changeCurrentUser,
     deleteUser,
 } from "../../features/messanger/messangerSlice";
 import { Trash2 } from "react-feather";
 
-const User = ({ userData, isEditing }) => {
-    const currentUser = useSelector((state) => state.messanger.currentUser);
-    const dispatch = useDispatch();
+type UserProps = {
+    userData: { id: number, name: string};
+    isEditing: boolean;
+}
+const User = ({ userData, isEditing }: UserProps ): JSX.Element => {
+    const currentUser = useAppSelector((state) => state.messanger.currentUser);
+    const dispatch = useAppDispatch();
 
     const usualStyle =
         "py-2 px-3 flex w-full duration-300 ease-out font-bold hover:bg-slate-400";

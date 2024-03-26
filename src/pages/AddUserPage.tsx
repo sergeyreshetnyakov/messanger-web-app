@@ -1,6 +1,6 @@
 import NewUserForm from "../components/User/NewUserForm";
 
-const AddUserPage = () => {
+const AddUserPage = (): JSX.Element => {
     return (
         <div className="bg-slate-200 h-screen">
             <div className="m-auto bg-white h-screen shadow-xl pt-12 px-6 w-3/5">

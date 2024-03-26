@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import UserBoard from './components/User/UserBoard';
 import MessangerPage from "./pages/MessangerPage";
 import AddUserPage from "./pages/AddUserPage";
-import "./App.sass";
 
 const App = () => {
     return (

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { addMessage } from "../../features/messanger/messangerSlice";
 import { Send } from "react-feather";
 
-const InputMessage = () => {
+const InputMessage = (): JSX.Element => {
     const [message, setMessage] = useState("");
     const dispatch = useDispatch();
 

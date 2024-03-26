@@ -1,9 +1,9 @@
 import UserOpenButton from "../User/UserOpenButton";
 import Message from "./Message";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../../hook";
 
-const MessagesPanel = () => {
-    const messages = useSelector((state) => state.messanger.messages);
+const MessagesPanel = (): JSX.Element => {
+    const messages = useAppSelector((state) => state.messanger.messages);
 
     return (
         <div className="px-5 pt-5 bg-slate-100 max-lg:w-screen h-[95vh]">

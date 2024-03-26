@@ -2,7 +2,7 @@ import UserBoard from "../components/User/UserBoard";
 import MessagesPanel from "../components/Message/MessagesPanel";
 import InputMessage from "../components/Message/InputMessage";
 
-const MessangerPage = () => {
+const MessangerPage = (): JSX.Element => {
     return (
         <div className="flex">
             <div className="max-lg:hidden lg:w-1/4">

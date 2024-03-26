@@ -1,6 +1,23 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-const initialState = {
+type User = {
+    name: string;
+    color: string;
+    id: number;
+}
+
+type Message = {
+    message: string;
+    sender: number;
+}
+
+type initialStateType = {
+    messages: Message[];
+    users: User[];
+    currentUser: number;
+}
+
+const initialState: initialStateType = {
     messages: [
         {
             message: "hello",
@@ -30,26 +47,26 @@ const messangerSlice = createSlice({
     name: "messanger",
     initialState,
     reducers: {
-        addMessage: (state, action) => {
-            const message = {
+        addMessage: (state, action: PayloadAction<string>) => {
+            const message: Message = {
                 message: action.payload,
                 sender: state.currentUser,
             };
             state.messages.push(message);
         },
-        addUser: (state, action) => {
+        addUser: (state, action: PayloadAction<User>) => {
             const user = {
                 name: action.payload.name,
-                color: action.payload.color.hex,
+                color: action.payload.color,
                 id: state.users.length,
             };
             console.log(user)
             state.users.push(user);
         },
-        changeCurrentUser: (state, action) => {
+        changeCurrentUser: (state, action: PayloadAction<number>) => {
             state.currentUser = action.payload;
         },
-        deleteUser: (state, action) => {
+        deleteUser: (state, action: PayloadAction<number>) => {
             state.users = state.users.filter(
                 (e) => e.id !== action.payload
             )

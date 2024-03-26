@@ -1,13 +1,13 @@
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../hook";
 import { useState } from "react";
 import { addUser } from "../../features/messanger/messangerSlice";
 import { Link } from "react-router-dom";
 import { SliderPicker } from "react-color";
 
-const NewUserForm = () => {
-    const [user, setUser] = useState("");
-    const [color, setColor] = useState("");
-    const dispatch = useDispatch();
+const NewUserForm = (): JSX.Element => {
+    const [user, setUser] = useState<string>("");
+    const [color, setColor] = useState<string>("");
+    const dispatch = useAppDispatch();
 
     return (
         <form className="flex flex-col" action="">
@@ -24,7 +24,7 @@ const NewUserForm = () => {
             <div className="mx-8">
                 <SliderPicker
                     color={color}
-                    onChangeComplete={(color, event) => setColor(color)}
+                    onChangeComplete={(color) => setColor(color.hex)}
                 />
             </div>
             <div className="flex justify-center mt-5">
@@ -33,7 +33,7 @@ const NewUserForm = () => {
                     type="submit"
                     onClick={() =>
                         user !== "" ? (
-                            dispatch(addUser({ name: user, color: color }))
+                            dispatch(addUser({ name: user, color: color, id: 0}))
                         ) : (
                             <></>
                         )

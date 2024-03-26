@@ -1,8 +1,12 @@
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../../hook";
 
-const Message = ({ senderId, message }) => {
-    const currentUser = useSelector((state) => state.messanger.currentUser);
-    const users = useSelector((state) => state.messanger.users);
+type IMessage = {
+    senderId: number;
+    message: string;
+}
+const Message = ({ senderId, message }: IMessage): JSX.Element => {
+    const currentUser = useAppSelector((state) => state.messanger.currentUser);
+    const users = useAppSelector((state) => state.messanger.users);
 
     const color = users[senderId].color
     return (

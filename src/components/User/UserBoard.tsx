@@ -1,13 +1,13 @@
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../../hook";
 import { useState } from "react";
 import { Edit } from "react-feather";
 import UserOpenButton from "./UserOpenButton";
 import AddUserButton from "./AddUserButton";
 import User from "./User";
 
-const UserBoard = () => {
-    const users = useSelector((state) => state.messanger.users);
-    const [editMode, setEditMode] = useState(false);
+const UserBoard = (): JSX.Element => {
+    const users = useAppSelector((state) => state.messanger.users);
+    const [editMode, setEditMode] = useState<boolean>(false);
 
     return (
         <div className="flex flex-col text-center h-screen border-r-2 shadow-xl">
